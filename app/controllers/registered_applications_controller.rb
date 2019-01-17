@@ -3,7 +3,8 @@ class RegisteredApplicationsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def create
-    @registered_app = current_user.registered_applications.new(app_params)
+    @registered_app = RegisteredApplication.new(app_params)
+    @registered_app.user = current_user
 
     if @registered_app.save
       flash[:notice] = "You successfully registered your app."
@@ -64,6 +65,6 @@ class RegisteredApplicationsController < ApplicationController
    private
 
    def app_params
-     params.require(:registered_applications).permit(:name, :url, :private)
+     params.require(:registered_application).permit(:name, :url)
    end
 end
