@@ -16,14 +16,8 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def index
-    @registered_apps = []
-    @all_apps = RegisteredApplication.all
-    @all_apps.each do |app|
-      if app.user == current_user
-        @registered_apps << app
-      end
-    end
-  end
+       @registered_apps = RegisteredApplication.all
+   end
 
   def show
     @registered_app = RegisteredApplication.find(params[:id])
