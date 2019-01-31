@@ -6,3 +6,4 @@ class ConfirmationsController < ApplicationController
       your_new_after_confirmation_path
     end
   end
+end

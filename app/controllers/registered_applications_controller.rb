@@ -16,8 +16,8 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def index
-       @registered_apps = RegisteredApplication.all
-   end
+    @registered_apps = RegisteredApplication.all
+  end
 
   def show
     @registered_app = RegisteredApplication.find(params[:id])
