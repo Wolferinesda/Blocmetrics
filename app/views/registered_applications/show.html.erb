@@ -5,6 +5,8 @@
 		<h4>URL: <%= link_to @registered_app.url, "http://#{@registered_app.url}" %></h4>
 		<p>Added by <%= @registered_app.user.email %></p>
 		<div class="col-8">
+			<%= pie_chart @registered_app.events.group(:name).count %>
+			<%= line_chart @registered_app.events.group_by_day(:created_at).count %>
 			<table class="table table-striped">
 				<thead class="thead-inverse">
 					<tr>
